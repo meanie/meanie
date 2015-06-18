@@ -25,36 +25,48 @@ process.once('exit', function(code) {
   }
 });
 
-//Parse arguments
-var cliPackage = require('../package');
-var versionFlag = argv.v || argv.version;
-
+//Event listeners for CLI
 cli.on('require', function(name) {
   console.log('Requiring external module', chalk.magenta(name));
 });
-
 cli.on('requireFail', function(name) {
   console.log(chalk.red('Failed to load external module'), chalk.magenta(name));
 });
 
-cli.launch({
-  cwd: argv.cwd
-}, handleArguments);
+//Parse arguments
+var cliPackage = require('../package');
+var versionFlag = argv.v || argv.version;
+var installFlag = argv.i || argv.install;
 
-//The actual logic
+//Launch CLI
+cli.launch({}, handleArguments);
+
+//Actual CLI logic
 function handleArguments(env) {
-  if (versionFlag && tasks.length === 0) {
-    console.log('CLI version', cliPackage.version);
+
+  //Output version
+  if (versionFlag) {
+
+    //CLI version
+    console.log(
+      chalk.magenta('Meanie'), 'CLI version', chalk.magenta(cliPackage.version)
+    );
+
+    //Local version
     if (env.modulePackage && typeof env.modulePackage.version !== 'undefined') {
-      console.log('Local version', env.modulePackage.version);
+      console.log(
+        chalk.magenta('Meanie'), 'local version', chalk.magenta(env.modulePackage.version)
+      );
     }
+
+    //Exit
     process.exit(0);
   }
 
+  //Find local meanie
   if (!env.modulePath) {
     console.log(
-      chalk.red('Local meanie not found in'),
-      chalk.magenta(tildify(env.cwd))
+      chalk.red('Local meanie not found in'), tildify(env.cwd)
     );
     console.log(chalk.red('Try running: npm install meanie'));
     process.exit(1);
@@ -76,8 +88,14 @@ function handleArguments(env) {
     );
   }
 
-  var meanieInst = require(env.modulePath);
-  process.nextTick(function() {
+  //Get meanie instance
+  var Meanie = require(env.modulePath);
 
-  });
+  //Install packages
+  if (installFlag) {
+    var toInstall = argv._.splice(0);
+    process.nextTick(function() {
+      Meanie.install.apply(Meanie, toInstall);
+    });
+  }
 }

@@ -7,6 +7,7 @@ var fs = require('fs');
 var os = require('os');
 var del = require('del');
 var cpr = require('cpr');
+var path = require('path');
 var git = require('git-cli');
 var chalk = require('chalk');
 var tildify = require('tildify');
@@ -86,20 +87,20 @@ function cloneFromRepo(module, cb) {
 }
 
 /**
- * Copy module to cwd
+ * Copy files helper
  */
-function copyToCwd(sourceDir, cb) {
+function copyFiles(sourceDir, destinationDir, cb) {
 
-  //Get cwd and log
-  var cwd = process.cwd();
-  console.log(' - Copying to', chalk.grey(tildify(cwd)));
+  //Log
+  destinationDir = path.resolve(destinationDir);
+  console.log(' - Copying to', chalk.grey(tildify(destinationDir)));
 
   //Ignored files
   var ignore = ['node_modules', '.git'],
       sourceLength = sourceDir.length;
 
   //Copy
-  cpr(sourceDir, cwd, {
+  cpr(sourceDir, destinationDir, {
     deleteFirst: false,
     overwrite: false,
     filter: function(file) {
@@ -122,7 +123,7 @@ function copyToCwd(sourceDir, cb) {
 /**
  * Install several modules in series
  */
-function installSeries(modules, cb) {
+function installSeries(modules, projectDir, cb) {
 
   //Nothing to do?
   if (!Array.isArray(modules) || modules.length === 0) {
@@ -130,10 +131,11 @@ function installSeries(modules, cb) {
   }
 
   //Get module
-  var module = modules.shift();
+  var module = modules.shift(),
+      noInstalled = 0;
 
   //Run install
-  Meanie.install(module, function(error) {
+  Meanie.install(module, projectDir, function(error) {
 
     //Module failed to install
     if (error) {
@@ -145,9 +147,14 @@ function installSeries(modules, cb) {
     }
 
     //Module installed! Go for the next one
+    noInstalled++;
     if (modules.length > 0) {
-      installSeries(modules, cb);
+      installSeries(modules, projectDir, cb);
+      return;
     }
+
+    //Done installing
+    cb(null, noInstalled);
   });
 }
 
@@ -163,19 +170,33 @@ var Meanie = {
   /**
    * Create Meanie project (installs core modules)
    */
-  create: function(cb) {
+  create: function(projectDir, cb) {
     cb = cb || function() {};
 
-    //Log
+    //Resolve path and log
+    projectDir = path.resolve(projectDir);
     console.log(
       chalk.magenta('Meanie'), 'is creating a new project in',
-      chalk.magenta(tildify(process.cwd()))
+      chalk.magenta(tildify(projectDir))
     );
+
+    //Check if destination exists and has files
+    if (fs.existsSync(projectDir)) {
+      var files = fs.readdirSync(projectDir);
+      if (files.length > 0) {
+        console.error(
+          chalk.red('Destination directory'),
+          chalk.magenta(tildify(projectDir)),
+          chalk.red('is not empty!')
+        );
+        return cb(new Error('Destination directory not empty!'));
+      }
+    }
 
     //Install core modules
     Meanie.install([
-      'core', 'hond'
-    ], function(error) {
+      'core'
+    ], projectDir, function(error) {
 
       //Failure
       if (error) {
@@ -187,7 +208,7 @@ var Meanie = {
 
       //Success
       console.log(chalk.green('Meanie project created successfully'));
-      console.log(chalk.grey('Run npm install to install dependencies'));
+      console.log(chalk.grey('Run `npm install` to install all the dependencies'));
       cb(null);
     });
   },
@@ -195,12 +216,15 @@ var Meanie = {
   /**
    * Install a meanie module
    */
-  install: function(module, cb) {
+  install: function(module, projectDir, cb) {
     cb = cb || function() {};
+
+    //Resolve project dir
+    projectDir = path.resolve(projectDir);
 
     //Array of modules given
     if (Array.isArray(module)) {
-      return installSeries(module, cb);
+      return installSeries(module, projectDir, cb);
     }
 
     //Log
@@ -214,8 +238,8 @@ var Meanie = {
         return cb(error);
       }
 
-      //Copy contents from temp dir to cwd
-      copyToCwd(tmpDir, function(error) {
+      //Copy contents from temp dir to project dir
+      copyFiles(tmpDir, projectDir, function(error) {
 
         //Failed to copy
         if (error) {

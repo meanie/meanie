@@ -12,7 +12,7 @@ var v8flags = require('v8flags');
 var argv = require('minimist')(process.argv.slice(2));
 
 //Set env var for initial cwd before anything touches it
-process.env.INIT_CWD = process.cwd();
+process.env.INITIAL_CWD = process.cwd();
 
 /**
  * Helper to check if we have a param in the arguments list
@@ -51,10 +51,12 @@ cli.on('requireFail', function(name) {
 });
 
 //Launch CLI
-cli.launch({}, handleArguments);
+cli.launch({}, cliLogic);
 
-//Actual CLI logic
-function handleArguments(env) {
+/**
+ * CLI logic
+ */
+function cliLogic(env) {
 
   //Output version
   if (argv.v || argv.version) {
@@ -80,7 +82,7 @@ function handleArguments(env) {
 
   //Check for version difference between cli and local installation
   if (semver.gt(cliPackage.version, env.modulePackage.version)) {
-    console.log(chalk.red('Warning: meanie version mismatch:'));
+    console.log(chalk.red('Meanie version mismatch:'));
     console.log(chalk.red('Global version is', cliPackage.version));
     console.log(chalk.red('Local version is', env.modulePackage.version));
   }
@@ -89,8 +91,7 @@ function handleArguments(env) {
   if (process.cwd() !== env.cwd) {
     process.chdir(env.cwd);
     console.log(
-      'Working directory changed to',
-      chalk.magenta(tildify(env.cwd))
+      'Working directory changed to', chalk.magenta(tildify(env.cwd))
     );
   }
 
@@ -102,8 +103,19 @@ function handleArguments(env) {
 
   //Create new Meanie project in current directory
   if (hasParam('create')) {
+
+    //Get destination to install to
+    var destination = getParamsAfter('create');
+
+    //Must specify a destination explicitly
+    if (destination.length === 0) {
+      console.error(chalk.red('Please specify a destination directory, or simply type `meanie create .` to create a project in the current directory.'));
+      return;
+    }
+
+    //Create project
     process.nextTick(function() {
-      Meanie.create();
+      Meanie.create(destination[0]);
     });
   }
 
@@ -111,7 +123,7 @@ function handleArguments(env) {
   else if (hasParam('install')) {
     var toInstall = getParamsAfter('install');
     process.nextTick(function() {
-      Meanie.install(toInstall);
+      Meanie.install(toInstall, process.env.INITIAL_CWD);
     });
   }
 }

@@ -11,8 +11,11 @@ This package installs the meanie CLI tools.
 # Install meanie CLI globally
 npm install -g meanie
 
-# Create a new Meanie project in an empty directory
-meanie create
+# Create a new Meanie project in the `project` directory
+meanie create project
+
+# Create a new Meanie project in the current directory
+meanie create .
 ```
 
 ## Gulp tasks

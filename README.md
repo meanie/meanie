@@ -29,28 +29,26 @@ Meanie comes with fully configured [Gulp](http://gulpjs.com/) tasks for all comm
 *Note*: The gulpfile for Meanie has been configured for use with Gulp version 4. This version is not officially released yet, but you can install and use the alpha version by following  [these instructions](http://demisx.github.io/gulp4/2015/01/15/install-gulp4.html).
 
 ### Default task
-The default task, which you can run by simply typing `gulp` is to run the thre main tasks, build, watch and start. This is perfect for ongoing development.
+The default task, which you can run by simply typing `gulp` is to run the three main tasks, build, watch and start. This is perfect for ongoing development.
 ```shell
 $ gulp
 ```
+You can also run these tasks individually if needed.
 
-### Main tasks
-You can also run the three main tasks individually:
-
-#### Build
+### Build task
 Build the application and populate the public folder with compiled javascript, stylesheets and static assets.
 ```shell
 $ gulp build
 ```
 
-#### Watch
+### Watch task
 Watch your files for changes and runs linters, unit tests and recompiles the application files as needed.
 ```shell
 $ gulp watch
 ```
 The watch task also comes with livereload, which gets triggered every time the index file is rebuilt. To use it, simply install the [Chrome livereload plugin](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en).
 
-#### Start
+### Start task
 Starts the Node server using [Nodemon](http://nodemon.io/).
 ```shell
 $ gulp start
@@ -61,36 +59,25 @@ There are three versioning tasks which help you bump your version numbers in you
 
 This process uses [semantic versioning](https://github.com/npm/node-semver).
 
-#### Bump patch version
-Bump the patch version number (0.1.0 -> 0.1.1)
 ```shell
+# Bump the patch version (0.1.0 -> 0.1.1)
 $ gulp patch
-```
 
-#### Bump minor version
-Bump the patch version number (0.1.0 -> 0.2.0)
-```shell
+# Bump the minor version (0.1.0 -> 0.2.0)
 $ gulp minor
-```
 
-#### Bump major version
-Bump the patch version number (0.1.0 -> 1.0.0)
-```shell
+# Bump the major version (0.1.0 -> 1.0.0)
 $ gulp major
 ```
 
 ### Helper tasks
 Some of the helper tasks have also been exposed to the CLI:
 
-#### Clean
-Cleans the public folder.
 ```shell
+# Cleans the public folder
 $ gulp clean
-```
 
-#### Static
-Copy all static assets to the public folder.
-```shell
+# Copy all static assets to the public folder
 $ gulp static
 ```
 

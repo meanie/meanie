@@ -180,3 +180,8 @@ Other differences are:
 * [Bower configuration](http://bower.io/docs/config/)
 * [JSHint configuration](http://jshint.com/docs/options/)
 * [Debugging Javascript](https://developer.chrome.com/devtools/docs/javascript-debugging)
+
+## License
+(MIT License)
+
+Copyright 2015, Adam Buczynski me@adambuczynski.com

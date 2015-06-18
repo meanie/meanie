@@ -68,7 +68,15 @@ function cliLogic(env) {
 
   //Output version
   if (argv.v || argv.version) {
-    return MeanieCLI.version.call(this, env);
+    console.log(
+      chalk.magenta('Meanie'), 'CLI version', chalk.magenta(cliPackage.version)
+    );
+    if (env.modulePackage && typeof env.modulePackage.version !== 'undefined') {
+      console.log(
+        chalk.magenta('Meanie'), 'local version', chalk.magenta(env.modulePackage.version)
+      );
+    }
+    process.exit(0);
   }
 
   //Initialize meanie instance var
@@ -78,13 +86,15 @@ function cliLogic(env) {
   if (env.modulePath) {
 
     //Log and check for version difference between cli and local installation
-    console.log('Local meanie found at', chalk.magenta(tildify(env.modulePath)));
-    if (semver.gt(cliPackage.version, env.modulePackage.version)) {
-      console.log(chalk.red('Meanie version mismatch:'));
-      console.log(chalk.red('CLI version is', cliPackage.version));
-      console.log(chalk.red('Local version is', env.modulePackage.version));
+    console.log(chalk.yellow('Local meanie found at'), chalk.magenta(tildify(env.modulePath)));
+    if (env.modulePackage && typeof env.modulePackage.version !== 'undefined') {
+      if (semver.gt(cliPackage.version, env.modulePackage.version)) {
+        console.log(chalk.yellow('Warning: Meanie version mismatch'));
+        console.log(chalk.yellow('CLI version is', cliPackage.version));
+        console.log(chalk.yellow('Local version is', env.modulePackage.version));
+      }
     }
-
+    
     //Use local meanie package
     Meanie = require(env.modulePath);
   }
@@ -98,7 +108,7 @@ function cliLogic(env) {
   for (var command in MeanieCLI) {
     if (MeanieCLI.hasOwnProperty(command)) {
       if (hasParam(command)) {
-        MeanieCLI[command].call(this, env);
+        MeanieCLI[command].call(this, Meanie, env);
       }
     }
   }
@@ -110,30 +120,9 @@ function cliLogic(env) {
 var MeanieCLI = {
 
   /**
-   * Output version
-   */
-  version: function(env) {
-
-    //CLI version
-    console.log(
-      chalk.magenta('Meanie'), 'CLI version', chalk.magenta(cliPackage.version)
-    );
-
-    //Local version found?
-    if (env.modulePackage && typeof env.modulePackage.version !== 'undefined') {
-      console.log(
-        chalk.magenta('Meanie'), 'local version', chalk.magenta(env.modulePackage.version)
-      );
-    }
-
-    //Done
-    process.exit(0);
-  },
-
-  /**
    * Create new Meanie project
    */
-  create: function(env) {
+  create: function(Meanie, env) {
 
     //Get destination to install to
     var destination = getParamsAfter('create');
@@ -155,12 +144,12 @@ var MeanieCLI = {
   /**
    * Install a Meanie module
    */
-  install: function(env) {
+  install: function(Meanie, env) {
 
     //Must have configuration file to install modules
     if (!env.configPath) {
       console.error(
-        chalk.red('No Meanie project detected in the current directory. To create a new project in the current directory, use `meanie create .`');
+        chalk.red('No Meanie project detected in the current directory. To create a new project in the current directory, use `meanie create .`')
       );
       process.exit(1);
     }

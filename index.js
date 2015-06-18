@@ -50,6 +50,7 @@ function createConfigFile(projectDir) {
   var configFile = getConfigFilePath(projectDir);
 
   //Write config
+  jf.spaces = 2;
   jf.writeFileSync(configFile, {
     version: pkg.version,
     modules: []
@@ -301,7 +302,7 @@ var Meanie = {
       var configFile = getConfigFilePath(projectDir);
 
       //Read
-      var config = js.readFileSync(configFile);
+      var config = jf.readFileSync(configFile);
       if (!Array.isArray(config.modules)) {
         config.modules = [];
       }
@@ -309,6 +310,7 @@ var Meanie = {
       //Add if not there
       if (config.modules.indexOf(module) === -1) {
         config.modules.push(module);
+        jf.spaces = 2;
         jf.writeFileSync(configFile, config);
       }
     }

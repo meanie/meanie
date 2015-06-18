@@ -6,6 +6,7 @@
 var fs = require('fs');
 var os = require('os');
 var jf = require('jsonfile');
+var npm = require('npm');
 var del = require('del');
 var cpr = require('cpr');
 var path = require('path');

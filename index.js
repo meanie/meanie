@@ -7,9 +7,9 @@ var fs = require('fs');
 var os = require('os');
 var del = require('del');
 var cpr = require('cpr');
+var git = require('git-cli');
 var chalk = require('chalk');
 var tildify = require('tildify');
-var Git = require('nodegit');
 
 /*var RegistryClient = require('npm-registry-client');
 var client = new RegistryClient();
@@ -64,7 +64,7 @@ function getRepoUrl(module) {
 function cloneFromRepo(module, cb) {
 
   //Get temporary directory
-  var tmpDir = Meanie.util.getTempDir(module);
+  var tmpDir = getTempDir(module);
   if (!tmpDir) {
     return cb(new Error('Could not create temporary directory'));
   }
@@ -74,23 +74,21 @@ function cloneFromRepo(module, cb) {
   console.log(' - Cloning from', chalk.grey(repoUrl));
 
   //Clone
-  Git.Clone.clone(repoUrl, tmpDir, {
-    remoteCallbacks: {
-      certificateCheck: function() {
-        return 1;
+  git.Repository.clone(repoUrl, tmpDir, function(error, repo) {
+    if (error) {
+      if (error.message.indexOf('Repository not found') !== -1) {
+        return cb(new Error('Repository not found'));
       }
+      return cb(error);
     }
-  }).then(function(repository) {
-    cb(null, tmpDir, repository);
-  }, function(reason) {
-    cb(reason);
+    cb(null, tmpDir, repo);
   });
 }
 
 /**
  * Copy module to cwd
  */
-function copyToCwd(sourceDir) {
+function copyToCwd(sourceDir, cb) {
 
   //Get cwd and log
   var cwd = process.cwd();
@@ -104,7 +102,6 @@ function copyToCwd(sourceDir) {
   cpr(sourceDir, cwd, {
     deleteFirst: false,
     overwrite: false,
-    confirm: true,
     filter: function(file) {
       file = file.substr(sourceLength + 1);
       for (var i = 0; i < ignore.length; i++) {
@@ -138,13 +135,16 @@ function installSeries(modules, cb) {
   //Run install
   Meanie.install(module, function(error) {
 
-    //Plugin failed to install
+    //Module failed to install
     if (error) {
-      console.error(chalk.red('Failed to install module'));
-      return cb(error);
+      console.error(
+        chalk.red('Module'), chalk.magenta(module),
+        chalk.red('failed to install:', error.message)
+      );
+      return cb(new Error('Some modules failed to install'));
     }
 
-    //Plugin installed! Go for the next one
+    //Module installed! Go for the next one
     if (modules.length > 0) {
       installSeries(modules, cb);
     }
@@ -179,10 +179,10 @@ var Meanie = {
 
       //Failure
       if (error) {
-        console.error(chalk.red('Failed to create project'));
-        console.error(chalk.red(error));
-        cb(error);
-        return;
+        console.error(
+          chalk.red('Failed to create project:', error.message)
+        );
+        return cb(new Error('Failed to create project'));
       }
 
       //Success
@@ -200,7 +200,7 @@ var Meanie = {
 
     //Array of modules given
     if (Array.isArray(module)) {
-      return installSeries(modules, cb);
+      return installSeries(module, cb);
     }
 
     //Log
@@ -222,8 +222,8 @@ var Meanie = {
           return cb(error);
         }
 
-        //Plugin was installed successfully
-        console.log(chalk.green('Plugin'), chalk.magenta(module), chalk.green('installed'));
+        //Module was installed successfully
+        console.log(chalk.green('Module'), chalk.magenta(module), chalk.green('installed'));
         cb(null, module);
       });
     });

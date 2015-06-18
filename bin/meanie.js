@@ -103,7 +103,7 @@ function handleArguments(env) {
   //Create new Meanie project in current directory
   if (hasParam('create')) {
     process.nextTick(function() {
-      Meanie.init();
+      Meanie.create();
     });
   }
 

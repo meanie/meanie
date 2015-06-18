@@ -171,7 +171,6 @@ Other differences are:
 [Yeoman](http://yeoman.io/) prescribes a particular folder structure (e.g. must have /app in your root), whereas Meanie likes to split your code between server/ and client/ first.
 
 ## Todo
-* Create Meanie CLI tool for easy installation of additional modules and initializing new projects.
 * Gulp SASS file linting. Current existing gulp tasks for this purpose depend on a Ruby gem.
 * Separate build tasks for development without concatenation/minification? Might not be necessary with the use of source maps, however, it would speed up the build tasks significantly.
 

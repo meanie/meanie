@@ -181,7 +181,10 @@ Other differences are:
 * [JSHint configuration](http://jshint.com/docs/options/)
 * [Debugging Javascript](https://developer.chrome.com/devtools/docs/javascript-debugging)
 
+## Contributing
+If you would like to contribute to Meanie, please check out [CONTRIBUTING.md](https://github.com/meanie/meanie/blob/master/CONTRIBUTING.md).
+
 ## License
 (MIT License)
 
-Copyright 2015, Adam Buczynski me@adambuczynski.com
+Copyright 2015, Adam Buczynski <me@adambuczynski.com>

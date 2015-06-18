@@ -5,6 +5,7 @@
  */
 var fs = require('fs');
 var os = require('os');
+var jf = require('jsonfile');
 var del = require('del');
 var cpr = require('cpr');
 var path = require('path');
@@ -24,9 +25,36 @@ var params = {timeout: 1000};*/
   // res is the response from couch
 //})
 
+/**
+ * Read package
+ */
+var pkg = require('./package.json');
+
 /*****************************************************************************
  * Helpers
  ***/
+
+/**
+ * Get path to config file
+ */
+function getConfigFilePath(projectDir) {
+  return projectDir + '/meaniefile.json';
+}
+
+/**
+ * Initialize config file
+ */
+function createConfigFile(projectDir) {
+
+  //Get path to file
+  var configFile = getConfigFilePath(projectDir);
+
+  //Write config
+  jf.writeFileSync(configFile, {
+    version: pkg.version,
+    modules: []
+  });
+}
 
 /**
  * Get temporary directory for given module
@@ -193,6 +221,9 @@ var Meanie = {
       }
     }
 
+    //Create new config file
+    createConfigFile(projectDir);
+
     //Install core modules
     Meanie.install([
       'core'
@@ -246,11 +277,41 @@ var Meanie = {
           return cb(error);
         }
 
+        //Add to config
+        Meanie.config.addModule(projectDir, module);
+
         //Module was installed successfully
         console.log(chalk.green('Module'), chalk.magenta(module), chalk.green('installed'));
         cb(null, module);
       });
     });
+  },
+
+  /**
+   * Configuration file management tools
+   */
+  config: {
+
+    /**
+     * Add module
+     */
+    addModule: function(projectDir, module) {
+
+      //Get path to file
+      var configFile = getConfigFilePath(projectDir);
+
+      //Read
+      var config = js.readFileSync(configFile);
+      if (!Array.isArray(config.modules)) {
+        config.modules = [];
+      }
+
+      //Add if not there
+      if (config.modules.indexOf(module) === -1) {
+        config.modules.push(module);
+        jf.writeFileSync(configFile, config);
+      }
+    }
   }
 };
 

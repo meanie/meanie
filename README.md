@@ -15,11 +15,11 @@ npm install -g meanie
 
 ## Usage
 ```shell
-# Create a new Meanie project in the given directory
-meanie create ~/some/path
-
 # Create a new Meanie project in the current directory
-meanie create .
+meanie create
+
+# Create a new Meanie project in a given directory
+meanie create ~/some/path
 
 # Install a specific Meanie module for the current project
 meanie install client-storage
@@ -182,6 +182,11 @@ Other differences are:
 #### Why doesn't Meanie use Yeoman?
 [Yeoman](http://yeoman.io/) prescribes a particular folder structure (e.g. must have /app in your root), whereas Meanie likes to split your code between server/ and client/ first.
 
+#### Why can't I simply install Meanie modules with npm?
+Unfortunately, npm currently doesn't support moving package code outside of the `node_modules` folder. Since the Meanie boilerplate has to reside in your project folder and not in `node_modules`, it was necessary to circumvent this limitation by creating a custom CLI tool.
+
+If at some point npm and Bower somehow fuse into a single wonderful tool to manage both client and server side dependencies, Meanie will be the first to use it!
+
 ## Further reading
 * [Modular vs sock drawer folder structure](http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript)
 * [Editor config](http://editorconfig.org)
@@ -204,4 +209,4 @@ If you would like to contribute to Meanie, please check out [CONTRIBUTING.md](ht
 ## License
 (MIT License)
 
-Copyright 2015, Adam Buczynski <me@adambuczynski.com>
+Copyright 2015, [Adam Buczynski](http://adambuczynski.com)

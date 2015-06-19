@@ -12,28 +12,14 @@ var v8flags = require('v8flags');
 var argv = require('minimist')(process.argv.slice(2));
 
 /**
- * Helper to check if we have a param in the arguments list
+ * Meanie dependencies
  */
-function hasParam(command) {
-  if (argv._.indexOf(command) !== -1) {
-    return true;
-  }
-  return false;
-}
+var errorHandler = require('./lib/utility/errorHandler');
+var cliPackage = require('../package');
 
 /**
- * Helper to get parameters after command
+ * Create cli instance
  */
-function getParamsAfter(command) {
-  var indexOf = argv._.indexOf(command);
-  if (indexOf === -1) {
-    return [];
-  }
-  return argv._.slice(indexOf+1);
-}
-
-//Create cli instance
-var cliPackage = require('../package');
 var cli = new Liftoff({
   name: 'meanie',
   v8flags: v8flags
@@ -51,12 +37,15 @@ cli.on('requireFail', function(name) {
 cli.launch({
   cwd: argv.cwd,
   configPath: argv.meanfile
-}, cliLogic);
+}, run);
 
 /**
  * CLI logic
  */
-function cliLogic(env) {
+function run(env) {
+
+  //Append cli package
+  env.cliPackage = cliPackage;
 
   //Change working directory of process if needed
   if (process.cwd() !== env.cwd) {
@@ -66,24 +55,14 @@ function cliLogic(env) {
     );
   }
 
-  //Output version
-  if (argv.v || argv.version) {
-    console.log(
-      chalk.magenta('Meanie'), 'CLI version', chalk.magenta(cliPackage.version)
-    );
-    if (env.modulePackage && typeof env.modulePackage.version !== 'undefined') {
-      console.log(
-        chalk.magenta('Meanie'), 'local version', chalk.magenta(env.modulePackage.version)
-      );
-    }
-    process.exit(0);
-  }
-
   //Initialize meanie instance var
   var Meanie;
 
-  //Check if local version present
-  if (env.modulePath) {
+  //If no local version present, use CLI bundled package.
+  if (!env.modulePath) {
+    Meanie = require('../lib/meanie');
+  }
+  else {
 
     //Log and check for version difference between cli and local installation
     console.log(chalk.yellow('Local meanie found at'), chalk.magenta(tildify(env.modulePath)));
@@ -94,78 +73,34 @@ function cliLogic(env) {
         console.log(chalk.yellow('Local version is', env.modulePackage.version));
       }
     }
-    m
+
     //Use local meanie package
     Meanie = require(env.modulePath);
   }
 
-  //No local meanie, use CLI bundled package
+  console.log(argv);
+  return;
+
+  //Determine command
+  if (argv.v || argv.version) {
+    Meanie.command = 'version';
+  }
+  else if (Meanie.resolveCommand(argv._[0])) {
+    Meanie.command = argv._.shift();
+  }
   else {
-    Meanie = require('../index');
+    return console.log(chalk.red('Unknown command!'));
   }
 
-  //Loop available commands
-  for (var command in MeanieCLI) {
-    if (MeanieCLI.hasOwnProperty(command)) {
-      if (hasParam(command)) {
-        MeanieCLI[command].call(this, Meanie, env);
-      }
+  //Load
+  Meanie.load(env, argv, function(error) {
+    if (error) {
+      return errorHandler(error);
     }
-  }
+
+    //Run command
+    process.nextTick(function() {
+      Meanie.commands[Meanie.command](argv, errorHandler);
+    }
+  });
 }
-
-/**
- * Meanie CLI class
- */
-var MeanieCLI = {
-
-  /**
-   * Create new Meanie project
-   */
-  create: function(Meanie, env) {
-
-    //Get destination to install to
-    var destination = getParamsAfter('create');
-
-    //Must specify a destination explicitly
-    if (destination.length === 0) {
-      console.error(
-        chalk.red('Please specify a destination directory, or use `meanie create .` to create a project in the current directory.')
-      );
-      process.exit(1);
-    }
-
-    //Set project dir
-    Meanie.setProjectDir(destination[0]);
-
-    //Create project
-    process.nextTick(function() {
-      Meanie.create();
-    });
-  },
-
-  /**
-   * Install a Meanie module
-   */
-  install: function(Meanie, env) {
-
-    //Must have configuration file to install modules
-    if (!env.configPath) {
-      console.error(
-        chalk.red('No Meanie project detected in the current directory. To create a new project in the current directory, use `meanie create .`')
-      );
-      process.exit(1);
-    }
-
-    //Get modules to install
-    var toInstall = getParamsAfter('install');
-
-    //Set project dir
-    Meanie.setProjectDir(env.cwd);
-
-    //Install the modules
-    process.nextTick(function() {
-      Meanie.install(toInstall);
-    });
-  }
-};

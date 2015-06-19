@@ -14,16 +14,22 @@ npm install -g meanie
 ```
 
 ## Usage
+To get started with Meanie, use the CLI to create a new Meanie project:
 ```shell
 # Create a new Meanie project in the current directory
 meanie create
 
 # Create a new Meanie project in a given directory
 meanie create ~/some/path
-
-# Install a specific Meanie module for the current project
-meanie install client-storage
 ```
+
+After you've created a new Meanie project, you can install additional Meanie modules as needed with the following command:
+```shell
+# Install a specific Meanie module for the current project
+meanie install fontello
+```
+
+To find out what Meanie modules are available, check Meanie on [github](https://github.com/meanie) or find Meanie modules in the [npm registry](https://www.npmjs.com/search?q=meanie-module).
 
 ## Gulp tasks
 Meanie comes with fully configured [Gulp](http://gulpjs.com/) tasks for all common development and build tasks.

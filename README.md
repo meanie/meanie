@@ -185,6 +185,7 @@ If you would like to contribute to Meanie, please check out [CONTRIBUTING.md](ht
 ## Credits
 * Server side logic partially derived from [MEAN.JS](https://github.com/meanjs/mean)
 * MEAN name coined by [Valeri Karpov](http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and)
+* CLI tool inspired by [Gulp](https://github.com/gulpjs/gulp) and [npm](https://github.com/npm/npm).
 
 ## License
 (MIT License)

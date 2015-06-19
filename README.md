@@ -38,7 +38,7 @@ $ gulp
 You can also run these tasks individually if needed.
 
 ### Build
-Build the application and populate the public folder with compiled javascript, stylesheets and static assets.
+Build the application and populate the public folder with compiled javascript, stylesheets and static assets. The build task also lints your files and runs your tests prior to building.
 ```shell
 $ gulp build
 ```
@@ -54,6 +54,19 @@ The watch task also comes with livereload, which gets triggered every time the i
 Starts the Node server using [Nodemon](http://nodemon.io/).
 ```shell
 $ gulp start
+```
+
+### Testing
+You can test your client and server side code without building by using one of the following tasks:
+```shell
+# Test server side code and client side code
+$ gulp test
+
+# Test server side code
+$ gulp test-server
+
+# Test client side code
+$ gulp test-client
 ```
 
 ### Versioning

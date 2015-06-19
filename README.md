@@ -1,11 +1,8 @@
 # Meanie
 Meanie is a boilerplate for developing full-stack modular javascript applications using the MEAN stack (MongoDB, Express, AngularJS and Node.js), powered by the Gulp task runner.
 
-## About
-This package installs the meanie CLI tools with which you can create new Meanie projects and manage your Meanie modules and dependencies.
-
-* [npm page](https://www.npmjs.com/package/meanie)
-* [github page](https://github.com/meanie/meanie)
+* [Meanie @ npm](https://www.npmjs.com/package/meanie)
+* [Meanie @ github](https://github.com/meanie/meanie)
 
 ## Installation
 ```shell
@@ -14,7 +11,7 @@ npm install -g meanie
 ```
 
 ## Usage
-To get started with Meanie, use the CLI to create a new Meanie project:
+To get started, first create a new Meanie project:
 ```shell
 # Create a new Meanie project in the current directory
 meanie create
@@ -23,7 +20,7 @@ meanie create
 meanie create ~/some/path
 ```
 
-After you've created a new Meanie project, you can install additional Meanie modules as needed with the following command:
+After you've created a new Meanie project, you can install additional Meanie modules as follows:
 ```shell
 # Install a specific Meanie module for the current project
 meanie install fontello

@@ -57,6 +57,7 @@
     "jsonfile": "^2.0.1",
     "liftoff": "^2.1.0",
     "minimist": "^1.1.1",
+    "npm": "^2.11.2",
     "npm-registry-client": "^6.4.0",
     "semver": "^4.3.6",
     "tildify": "^1.1.0",

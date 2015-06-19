@@ -14,7 +14,7 @@ var argv = require('minimist')(process.argv.slice(2));
 /**
  * Meanie dependencies
  */
-var errorHandler = require('./lib/utility/errorHandler');
+var errorHandler = require('../lib/utility/errorHandler');
 var cliPackage = require('../package');
 
 /**
@@ -56,11 +56,11 @@ function run(env) {
   }
 
   //Initialize meanie instance var
-  var Meanie;
+  var meanie;
 
   //If no local version present, use CLI bundled package.
   if (!env.modulePath) {
-    Meanie = require('../lib/meanie');
+    meanie = require('../lib/meanie');
   }
   else {
 
@@ -75,32 +75,29 @@ function run(env) {
     }
 
     //Use local meanie package
-    Meanie = require(env.modulePath);
+    meanie = require(env.modulePath);
   }
-
-  console.log(argv);
-  return;
 
   //Determine command
   if (argv.v || argv.version) {
-    Meanie.command = 'version';
+    meanie.command = 'version';
   }
-  else if (Meanie.resolveCommand(argv._[0])) {
-    Meanie.command = argv._.shift();
+  else if (meanie.resolveCommand(argv._[0])) {
+    meanie.command = argv._.shift();
   }
   else {
-    return console.log(chalk.red('Unknown command!'));
+    return errorCallback(new Error('Unknown command!'));
   }
 
   //Load
-  Meanie.load(env, argv, function(error) {
+  meanie.load(env, argv, function(error) {
     if (error) {
       return errorHandler(error);
     }
 
     //Run command
     process.nextTick(function() {
-      Meanie.commands[Meanie.command](argv, errorHandler);
-    }
+      meanie.commands[meanie.command](argv._, errorHandler);
+    });
   });
 }

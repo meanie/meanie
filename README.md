@@ -28,33 +28,33 @@ Meanie comes with fully configured [Gulp](http://gulpjs.com/) tasks for all comm
 
 *Note*: The gulpfile for Meanie has been configured for use with Gulp version 4. This version is not officially released yet, but you can install and use the alpha version by following  [these instructions](http://demisx.github.io/gulp4/2015/01/15/install-gulp4.html).
 
-### Default task
+### Default
 The default task, which you can run by simply typing `gulp` is to run the three main tasks, build, watch and start. This is perfect for ongoing development.
 ```shell
 $ gulp
 ```
 You can also run these tasks individually if needed.
 
-### Build task
+### Build
 Build the application and populate the public folder with compiled javascript, stylesheets and static assets.
 ```shell
 $ gulp build
 ```
 
-### Watch task
+### Watch
 Watch your files for changes and runs linters, unit tests and recompiles the application files as needed.
 ```shell
 $ gulp watch
 ```
 The watch task also comes with livereload, which gets triggered every time the index file is rebuilt. To use it, simply install the [Chrome livereload plugin](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en).
 
-### Start task
+### Start
 Starts the Node server using [Nodemon](http://nodemon.io/).
 ```shell
 $ gulp start
 ```
 
-### Versioning tasks
+### Versioning
 There are three versioning tasks which help you bump your version numbers in your package files and automatically update the version in your README file, as well as commit the bump to the repository and tag it with the new version.
 
 This process uses [semantic versioning](https://github.com/npm/node-semver).
@@ -70,7 +70,7 @@ $ gulp minor
 $ gulp major
 ```
 
-### Helper tasks
+### Helpers
 Some of the helper tasks have also been exposed to the CLI:
 
 ```shell

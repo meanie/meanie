@@ -15,8 +15,8 @@ npm install -g meanie
 
 ## Usage
 ```shell
-# Create a new Meanie project in the `project` directory
-meanie create project
+# Create a new Meanie project in the given directory
+meanie create ~/some/path
 
 # Create a new Meanie project in the current directory
 meanie create .

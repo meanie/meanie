@@ -187,6 +187,7 @@ Other differences are:
 * [Editor config](http://editorconfig.org)
 * [Bower configuration](http://bower.io/docs/config/)
 * [JSHint configuration](http://jshint.com/docs/options/)
+* [Package.json configuration](https://docs.npmjs.com/files/package.json)
 * [Debugging Javascript](https://developer.chrome.com/devtools/docs/javascript-debugging)
 
 ## Bugs, issues, suggestions, feature requests

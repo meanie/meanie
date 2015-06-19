@@ -90,46 +90,51 @@ The following is an outline of the folder structure of this boilerplate:
 # Client side code and assets
 client
 
-  # This is where your client side Angular application resides. Everything in this folder should be explicitly specific to your application.
+  # This is where your client side Angular application resides.
+  # Everything in this folder should be explicitly specific to
+  # your application.
   |_ app
 
-    # The home module of your application. Feel free to rename to anything that suits better (e.g. index, dashboard, ...)
+    # The home module of your application. Feel free to rename to
+    # anything that suits better (e.g. index, dashboard, ...)
     |_ home
 
-    # This folder contains the layout module for you application. It's a good place to store all common SASS stylesheets and templates.
+    # This folder contains the layout module for you application.
+    # It's a good place to store all common stylesheets and templates.
     |_ layout
 
-    # This folder contains an Angular mock backend for your application. You can add new mock modules as needed.
-    |_ mock
-
-    # The main navigation module, for application wide navigation logic.
+    # The navigation module, for application wide navigation logic.
     |_ nav
 
-    # An example secured module.
-    |_ secure
-
-    # Any application specific, but shared services, directives and filters that don't belong to one specific module can be placed here.
+    # Any application specific, but shared services, directives and
+    # filters that don't belong to one specific module reside here.
     |_ shared
 
-    # An example user module implementation.
-    |_ user
-
-  # Common (non packaged) services, directives and filters are arranged in this folder. Everything in here is not specific to a particular application and could be recycled in other projects.
+  # Common (non packaged) services, directives and filters are arranged
+  # in this folder. Everything in here is not specific to a particular
+  # application and could be recycled in other projects.
   |_ common
 
-  # Static assets for your client application go here. This is a good place to store fonts, images, audio files, etc. Anything in here will be copied as-is to the public folder.
+  # Static assets for your client application go here. This is a good
+  # place to store fonts, images, audio files, etc. Anything in here
+  # will be copied as-is to the public folder.
   |_ static
 
-  # Vendor resources reside here. Bower is configured to download all 3rd party resources into this folder, and this folder is excluded from the GIT repository.
+  # Vendor resources reside here. Bower is configured to download all
+  # 3rd party resources into this folder, and this folder is excluded
+  # from the GIT repository.
   |_ vendor
 
 # Server side code and assets
 server
 
-  # This is where your server side Node/Express application resides. Everything in this folder should be explicitly specific to your application.
+  # This is where your server side Node/Express application resides.
+  # Everything in this folder should be specific to your application.
   |_ app
 
-  # Common (non packaged) node modules are arranged in this folder. Everything in here is not specific to a particular application and could be recycled in other projects.
+  # Common (non packaged) node modules are arranged in this folder.
+  # Everything in here is not specific to a particular application
+  # and could be recycled in other projects.
   |_ common
 
 # Environment configuration (shared by client and server)

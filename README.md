@@ -71,7 +71,7 @@ $ gulp major
 ```
 
 ### Helpers
-Some of the helper tasks have also been exposed to the CLI:
+Some of the helper tasks have also been exposed to the CLI:``
 
 ```shell
 # Cleans the public folder
@@ -162,10 +162,6 @@ Other differences are:
 #### Why doesn't Meanie use Yeoman?
 [Yeoman](http://yeoman.io/) prescribes a particular folder structure (e.g. must have /app in your root), whereas Meanie likes to split your code between server/ and client/ first.
 
-## Todo
-* Gulp SASS file linting. Current existing gulp tasks for this purpose depend on a Ruby gem.
-* Separate build tasks for development without concatenation/minification? Might not be necessary with the use of source maps, however, it would speed up the build tasks significantly.
-
 ## Further reading
 * [Modular vs sock drawer folder structure](http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript)
 * [Editor config](http://editorconfig.org)
@@ -173,8 +169,15 @@ Other differences are:
 * [JSHint configuration](http://jshint.com/docs/options/)
 * [Debugging Javascript](https://developer.chrome.com/devtools/docs/javascript-debugging)
 
+## Bugs, issues, suggestions, feature requests
+Please report all bugs, issues, suggestions and feature requests in our [GitHub issue tracker](https://github.com/meanie/meanie/issues).
+
 ## Contributing
 If you would like to contribute to Meanie, please check out [CONTRIBUTING.md](https://github.com/meanie/meanie/blob/master/CONTRIBUTING.md).
+
+## Credits
+* Server side logic partially derived from [MEAN.JS](https://github.com/meanjs/mean)
+* MEAN name coined by [Valeri Karpov](http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and)
 
 ## License
 (MIT License)

@@ -45,12 +45,11 @@
   ],
   "preferGlobal": true,
   "bin": {
-    "meanie": "./bin/meanie.js"
+    "meanie": "./bin/meanie-cli.js"
   },
   "scripts": {
     "start": "",
-    "test": "",
-    "postinstall": ""
+    "test": ""
   },
   "dependencies": {
     "chalk": "^1.0.0",

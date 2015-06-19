@@ -94,7 +94,7 @@ function cliLogic(env) {
         console.log(chalk.yellow('Local version is', env.modulePackage.version));
       }
     }
-    
+    m
     //Use local meanie package
     Meanie = require(env.modulePath);
   }

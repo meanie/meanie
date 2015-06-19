@@ -1,10 +1,9 @@
 {
   "name": "meanie",
   "description": "Meanie is a boilerplate for developing full-stack modular javascript applications using the MEAN stack: MongoDB, Express, AngularJS and Node.js.",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "private": false,
   "license": "MIT",
-  "main": "index.js",
   "author": {
     "name": "Adam Buczynski",
     "email": "me@adambuczynski.com",
@@ -39,14 +38,13 @@
     "npm": ">=2.10.1"
   },
   "files": [
-    "index.js",
+    "cli.js",
     "bin",
     "lib"
   ],
   "preferGlobal": true,
-  "bin": {
-    "meanie": "./bin/meanie-cli.js"
-  },
+  "main": "./lib/meanie.js",
+  "bin": "./bin/meanie-cli.js",
   "scripts": {
     "start": "",
     "test": ""

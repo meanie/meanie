@@ -135,9 +135,12 @@ var MeanieCLI = {
       process.exit(1);
     }
 
+    //Set project dir
+    Meanie.setProjectDir(destination[0]);
+
     //Create project
     process.nextTick(function() {
-      Meanie.create(destination[0]);
+      Meanie.create();
     });
   },
 
@@ -157,9 +160,12 @@ var MeanieCLI = {
     //Get modules to install
     var toInstall = getParamsAfter('install');
 
+    //Set project dir
+    Meanie.setProjectDir(env.cwd);
+
     //Install the modules
     process.nextTick(function() {
-      Meanie.install(toInstall, env.cwd);
+      Meanie.install(toInstall);
     });
   }
 };

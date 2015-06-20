@@ -50,9 +50,7 @@ function run(env) {
   //Change working directory of process if needed
   if (process.cwd() !== env.cwd) {
     process.chdir(env.cwd);
-    console.log(
-      'Working directory changed to', chalk.magenta(tildify(env.cwd))
-    );
+    console.log('Working directory changed to', chalk.magenta(tildify(env.cwd)));
   }
 
   //Initialize meanie instance var
@@ -76,17 +74,6 @@ function run(env) {
 
     //Use local meanie package
     meanie = require(env.modulePath);
-  }
-
-  //Determine command
-  if (argv.v || argv.version) {
-    meanie.command = 'version';
-  }
-  else if (meanie.resolveCommand(argv._[0])) {
-    meanie.command = argv._.shift();
-  }
-  else {
-    return errorCallback(new Error('Unknown command!'));
   }
 
   //Load

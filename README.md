@@ -4,10 +4,6 @@
 
 Meanie is a boilerplate for developing full-stack modular javascript applications using the MEAN stack (MongoDB, Express, AngularJS and Node.js), powered by the Gulp task runner.
 
-* [Meanie @ npm](https://www.npmjs.com/package/meanie)
-* [Meanie @ github](https://github.com/meanie/meanie)
-* [Meanie @ gitter](https://gitter.im/meanie/meanie)
-
 ## Installation
 ```shell
 # Install meanie CLI globally

@@ -190,6 +190,12 @@ Unfortunately, npm currently doesn't support moving package code outside of the 
 
 If at some point npm and Bower somehow fuse into a single wonderful tool to manage both client and server side dependencies, Meanie will be the first to use it!
 
+#### What if I want to use different server architecture?
+Just delete the `server` folder and replace it with whatever you'd like to use. You can use backend mocks for the client application by installing the [Meanie Backend Mocks](https://github.com/meanie/meanie-backend-mocks) module.
+
+#### What if I want to use different client architecture?
+The Meanie client app is built on the AngularJS framework. If you want to use a different framework, it is recommended you find a different boilerplate, suited for that specific framework.
+
 ## Further reading
 * [Modular vs sock drawer folder structure](http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript)
 * [Editor config](http://editorconfig.org)

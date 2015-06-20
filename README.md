@@ -1,6 +1,6 @@
 # Meanie
 
-[![npm version](https://badge.fury.io/js/meanie.svg)](http://badge.fury.io/js/meanie) [![Join the chat at https://gitter.im/meanie/meanie](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/meanie/meanie?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![npm version](https://badge.fury.io/js/meanie.svg)](http://badge.fury.io/js/meanie) [![Join the chat at https://gitter.im/meanie/meanie](https://img.shields.io/badge/gitter-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/meanie/meanie?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Meanie is a boilerplate for developing full-stack modular javascript applications using the MEAN stack (MongoDB, Express, AngularJS and Node.js), powered by the Gulp task runner.
 

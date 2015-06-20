@@ -1,6 +1,6 @@
 # Meanie
 
-[![npm version](https://img.shields.io/npm/v/meanie.svg)](https://www.npmjs.com/package/meanie) [![node dependencies](https://david-dm.org/meanie/meanie.svg)](https://david-dm.org/meanie/meanie) [![github issues](https://img.shields.io/github/issues/meanie/meanie.svg)](https://github.com/meanie/meanie/issues) [![Join the chat at https://gitter.im/meanie/meanie](https://img.shields.io/badge/gitter-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/meanie/meanie?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![npm version](https://img.shields.io/npm/v/meanie.svg)](https://www.npmjs.com/package/meanie) [![node dependencies](https://david-dm.org/meanie/meanie.svg)](https://david-dm.org/meanie/meanie) [![github issues](https://img.shields.io/github/issues/meanie/meanie.svg)](https://github.com/meanie/meanie/issues) [![codacy](https://img.shields.io/codacy/f5d26ae35d85497c8bf3d76738b0edea.svg)](https://www.codacy.com/app/adambuczynski/meanie) [![gitter](https://img.shields.io/badge/gitter-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/meanie/meanie?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Meanie is a boilerplate for developing full-stack modular javascript applications using the MEAN stack (MongoDB, Express, AngularJS and Node.js), powered by the Gulp task runner.
 

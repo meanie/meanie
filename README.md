@@ -3,6 +3,7 @@ Meanie is a boilerplate for developing full-stack modular javascript application
 
 * [Meanie @ npm](https://www.npmjs.com/package/meanie)
 * [Meanie @ github](https://github.com/meanie/meanie)
+* [Meanie @ gitter](https://gitter.im/meanie/meanie)
 
 ## Installation
 ```shell

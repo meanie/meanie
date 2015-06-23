@@ -8,7 +8,7 @@
 
 Meanie is a boilerplate for developing, testing and building full-stack modular javascript applications using MEAN (MongoDB, Express, AngularJS and Node.js). Meanie is powered by the Gulp task runner.
 
-This package contains the Meanie CLI tool which can be used to create new Meanie projects and install other Meanie modules. For more information about the boilerplate itself, please check the [Meanie Boilerplate GitHub repository](https://github.com/meanie/boilerplate) or [Meanie Boilerplate npm page](https://www.npmjs.com/package/meanie-boilerplate).
+This package contains the Meanie CLI tool which can be used to create new Meanie projects and install other Meanie modules. For more information about the boilerplate itself, please check the [Meanie Boilerplate GitHub repository](https://github.com/meanie/boilerplate) or the [Meanie Boilerplate npm page](https://www.npmjs.com/package/meanie-boilerplate).
 
 ## Installation
 ```shell
@@ -17,22 +17,22 @@ npm install -g meanie
 ```
 
 ## Usage
-### Create new Meanie project
+### 1. Create a new Meanie project
 ```shell
-# Create a new Meanie project in the current directory
 meanie create
-
-# Create a new Meanie project in a given directory
-meanie create ~/some/path
 ```
 
-### Install additional modules
+### 2. Install any additional modules you'd like
 ```shell
-# Install a specific Meanie module for the current project
-meanie install fontello
+meanie install angular-storage angular-filters fontello
 ```
 
 To find out what Meanie modules are available, check Meanie on [github](https://github.com/meanie) or find Meanie modules in the [npm registry](https://www.npmjs.com/search?q=meanie-module).
+
+### 3. Build and run the app!
+```shell
+gulp
+```
 
 ## Gulp tasks
 Meanie comes with fully configured [Gulp](http://gulpjs.com/) tasks for all common development and build tasks.

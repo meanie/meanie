@@ -8,7 +8,7 @@
 
 Meanie is a boilerplate for developing, testing and building full-stack modular javascript applications using MEAN (MongoDB, Express, AngularJS and Node.js). Meanie is powered by the Gulp task runner.
 
-This package contains the Meanie CLI tool which can be used to create new Meanie projects and install other Meanie modules.
+This package contains the Meanie CLI tool which can be used to create new Meanie projects and install other Meanie modules. For more information about the boilerplate itself, please check the [Meanie Boilerplate GitHub repository](https://github.com/meanie/boilerplate) or [Meanie Boilerplate npm page](https://www.npmjs.com/package/meanie-boilerplate).
 
 ## Installation
 ```shell
@@ -17,7 +17,7 @@ npm install -g meanie
 ```
 
 ## Usage
-To get started, first create a new Meanie project:
+### Create new Meanie project
 ```shell
 # Create a new Meanie project in the current directory
 meanie create
@@ -26,7 +26,7 @@ meanie create
 meanie create ~/some/path
 ```
 
-After you've created a new Meanie project, you can install additional Meanie modules as follows:
+### Install additional modules
 ```shell
 # Install a specific Meanie module for the current project
 meanie install fontello
@@ -129,6 +129,14 @@ Just delete the `server` folder and replace it with whatever you'd like to use. 
 #### What if I want to use different client architecture?
 The Meanie client app is built on the AngularJS framework. If you want to use a different framework, it is recommended you find a different boilerplate, suited for that specific framework.
 
+## Issues & feature requests
+Please report any bugs, issues, suggestions and feature requests in the appropriate issue tracker:
+* [Meanie Boilerplate issue tracker](https://github.com/meanie/boilerplate/issues)
+* [Meanie CLI issue tracker](https://github.com/meanie/meanie/issues)
+
+## Contributing
+If you would like to contribute to Meanie, please check out [CONTRIBUTING.md](https://github.com/meanie/meanie/blob/master/CONTRIBUTING.md).
+
 ## Further reading
 * [Modular vs sock drawer folder structure](http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript)
 * [Editor config](http://editorconfig.org)
@@ -136,14 +144,6 @@ The Meanie client app is built on the AngularJS framework. If you want to use a 
 * [JSHint configuration](http://jshint.com/docs/options/)
 * [Package.json configuration](https://docs.npmjs.com/files/package.json)
 * [Debugging Javascript](https://developer.chrome.com/devtools/docs/javascript-debugging)
-
-## Issues & feature requests
-Issues with the Meanie CLI tool should be reported in the [Meanie issue tracker](https://github.com/meanie/meanie/issues).
-
-Any bugs, issues, suggestions and feature requests for the Meanie Boilerplate should go in the  [Meanie Boilerplate issue tracker](https://github.com/meanie/boilerplate/issues).
-
-## Contributing
-If you would like to contribute to Meanie, please check out [CONTRIBUTING.md](https://github.com/meanie/meanie/blob/master/CONTRIBUTING.md).
 
 ## Credits
 * Server side logic partially derived from [MEAN.JS](https://github.com/meanjs/mean)

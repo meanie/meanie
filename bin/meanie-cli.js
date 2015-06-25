@@ -36,7 +36,7 @@ cli.on('requireFail', function(name) {
 //Launch CLI application
 cli.launch({
   cwd: argv.cwd,
-  configPath: argv.meanfile
+  configPath: argv.meaniefile
 }, run);
 
 /**
@@ -47,7 +47,7 @@ function run(env) {
   //Append cli package
   env.cliPackage = cliPackage;
 
-  //Change working directory of process if needed
+  //Change working directory of process if different from current
   if (process.cwd() !== env.cwd) {
     process.chdir(env.cwd);
     console.log('Working directory changed to', chalk.magenta(tildify(env.cwd)));

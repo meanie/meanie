@@ -44,7 +44,6 @@
   "main": "./lib/meanie.js",
   "bin": "./bin/meanie-cli.js",
   "scripts": {
-    "start": "",
     "test": ""
   },
   "dependencies": {

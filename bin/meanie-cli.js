@@ -33,12 +33,6 @@ cli.on('requireFail', function(name) {
   console.error(chalk.red('Failed to load external module', name));
 });
 
-//Launch CLI application
-cli.launch({
-  cwd: argv.cwd,
-  configPath: argv.meaniefile
-}, run);
-
 /**
  * CLI logic
  */
@@ -88,3 +82,11 @@ function run(env) {
     });
   });
 }
+
+/**
+ * Launch CLI application
+ */
+cli.launch({
+  cwd: argv.cwd,
+  configPath: argv.meaniefile
+}, run);

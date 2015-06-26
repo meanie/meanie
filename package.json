@@ -1,7 +1,7 @@
 {
   "name": "meanie",
   "description": "Meanie is a boilerplate for developing, testing and building full-stack modular javascript applications using MEAN (MongoDB, Express, AngularJS and Node.js). Meanie is powered by the Gulp task runner.",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "homepage": "https://github.com/meanie/#readme",
   "author": {
     "name": "Adam Buczynski",
@@ -10,7 +10,6 @@
   },
   "contributors": [],
   "license": "MIT",
-  "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/meanie/meanie"
@@ -44,7 +43,8 @@
   "main": "./lib/meanie.js",
   "bin": "./bin/meanie-cli.js",
   "scripts": {
-    "test": ""
+    "pretest": "./node_modules/jshint/bin/jshint --reporter=node_modules/jshint-stylish bin lib",
+    "test": "node test.js"
   },
   "dependencies": {
     "chalk": "^1.0.0",
@@ -58,5 +58,11 @@
     "semver": "^4.3.6",
     "tildify": "^1.1.0",
     "v8flags": "^2.0.7"
+  },
+  "devDependencies": {
+    "jasmine": "^2.3.1",
+    "jasmine-spec-reporter": "^2.2.3",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.0.1"
   }
 }

@@ -1,4 +1,4 @@
-# Meanie - Xxxxx
+# Meanie - xxxxx
 
 [![npm version](https://img.shields.io/npm/v/meanie-xxxxx.svg)](https://www.npmjs.com/package/meanie-xxxxx)
 [![node dependencies](https://david-dm.org/meanie/xxxxx.svg)](https://david-dm.org/meanie/xxxxx)
@@ -15,11 +15,11 @@ meanie install xxxxx
 ```
 
 ## Usage
-
+...
 
 ## Issues & feature requests
 Please report any bugs, issues, suggestions and feature requests in the appropriate issue tracker:
-* [Meanie Xxxxx issue tracker](https://github.com/meanie/xxxxx/issues)
+* [Module issue tracker](https://github.com/meanie/xxxxx/issues)
 * [Meanie Boilerplate issue tracker](https://github.com/meanie/boilerplate/issues)
 * [Meanie CLI issue tracker](https://github.com/meanie/meanie/issues)
 

@@ -43,8 +43,8 @@
   "main": "./lib/meanie.js",
   "bin": "./bin/meanie-cli.js",
   "scripts": {
-    "jshint": "./node_modules/jshint/bin/jshint --reporter=node_modules/jshint-stylish bin lib tests",
-    "jscs": "./node_modules/jscs/bin/jscs bin lib tests || true",
+    "jshint": "./node_modules/jshint/bin/jshint --reporter=node_modules/jshint-stylish . || true",
+    "jscs": "./node_modules/jscs/bin/jscs . || true",
     "pretest": "npm run jscs & npm run jshint",
     "test": "node test.js"
   },

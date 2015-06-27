@@ -4,6 +4,7 @@
 /**
  * Module dependencies
  */
+var path = require('path');
 var chalk = require('chalk');
 var semver = require('semver');
 var tildify = require('tildify');
@@ -53,6 +54,7 @@ function run(env) {
   //If no local version present, use CLI bundled package.
   if (!env.modulePath) {
     meanie = require('../lib/meanie');
+    env.modulePath = path.resolve(__dirname + '/../lib/meanie');
   }
   else {
 

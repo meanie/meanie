@@ -1,0 +1,46 @@
+{
+  "name": "meanie-xxxxx",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "https://github.com/meanie/",
+  "author": {
+    "name": "Adam Buczynski",
+    "email": "me@adambuczynski.com",
+    "url": "http://adambuczynski.com/"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meanie/xxxxx"
+  },
+  "bugs": {
+    "url": "https://github.com/meanie/xxxxx/issues"
+  },
+  "keywords": [
+    "meanie",
+    "meanie-module"
+  ],
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "jshint": "./node_modules/jshint/bin/jshint --reporter=node_modules/jshint-stylish . || true",
+    "jscs": "./node_modules/jscs/bin/jscs . || true",
+    "pretest": "npm run jscs & npm run jshint",
+    "test": "./node_modules/karma/bin/karma start"
+  },
+  "devDependencies": {
+    "angular": "^1.4.1",
+    "angular-mocks": "^1.4.1",
+    "jasmine-core": "^2.3.4",
+    "jscs": "^1.13.1",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.0.1",
+    "karma": "^0.12.36",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-spec-reporter": "0.0.19",
+    "phantomjs": "^1.9.17"
+  }
+}

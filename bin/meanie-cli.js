@@ -53,12 +53,13 @@ function run(env) {
   //If no local version present, use CLI bundled package.
   if (!env.modulePath) {
     meanie = require('../lib/meanie');
+    env.cliVersion = cliPackage.version;
   }
   else {
 
     //Log and check for version difference between cli and local installation
     console.log(chalk.yellow('Local meanie found at'), chalk.magenta(tildify(env.modulePath)));
-    if (env.modulePackage && typeof env.modulePackage.version !== 'undefined') {
+    if (env.modulePackage && env.modulePackage.version) {
       if (semver.gt(cliPackage.version, env.modulePackage.version)) {
         console.log(chalk.yellow('Warning: Meanie version mismatch'));
         console.log(chalk.yellow('CLI version is', cliPackage.version));
@@ -68,6 +69,7 @@ function run(env) {
 
     //Use local meanie package
     meanie = require(env.modulePath);
+    env.cliVersion = env.modulePackage.version;
   }
 
   //Load

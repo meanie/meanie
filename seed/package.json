@@ -22,7 +22,8 @@
     "meanie-module"
   ],
   "files": [
-    "src"
+    "src",
+    "meanie.json"
   ],
   "scripts": {
     "jshint": "./node_modules/jshint/bin/jshint --reporter=node_modules/jshint-stylish . || true",

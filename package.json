@@ -1,7 +1,7 @@
 {
   "name": "meanie",
   "description": "Meanie is a boilerplate for developing, testing and building full-stack modular javascript applications using MEAN (MongoDB, Express, AngularJS and Node.js). Meanie is powered by the Gulp task runner.",
-  "version": "0.4.8",
+  "version": "0.5.0",
   "homepage": "https://github.com/meanie/#readme",
   "author": {
     "name": "Adam Buczynski",

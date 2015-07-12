@@ -9,7 +9,6 @@ var semver = require('semver');
 var tildify = require('tildify');
 var Liftoff = require('liftoff');
 var v8flags = require('v8flags');
-var argv = require('minimist')(process.argv.slice(2));
 
 /**
  * Meanie dependencies
@@ -73,14 +72,14 @@ function run(env) {
   }
 
   //Load
-  meanie.load(env, argv, function(error) {
+  meanie.load(env, function(error, args) {
     if (error) {
       return errorHandler(error);
     }
 
     //Run command
     process.nextTick(function() {
-      meanie.commands[meanie.command](argv._, errorHandler);
+      meanie.commands[meanie.command](args, errorHandler);
     });
   });
 }
@@ -88,7 +87,4 @@ function run(env) {
 /**
  * Launch CLI application
  */
-cli.launch({
-  cwd: argv.cwd,
-  configPath: argv.meaniefile
-}, run);
+cli.launch({}, run);

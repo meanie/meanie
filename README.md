@@ -22,6 +22,9 @@ npm install -g meanie
 meanie create AppName
 ```
 
+This will install the following core Meanie module(s):
+* [boilerplate](https://github.com/meanie/boilerplate)
+
 ### 2. Install any additional modules you'd like
 ```shell
 meanie install angular-storage angular-api

@@ -37,6 +37,15 @@ To find out what Meanie modules are available, check Meanie on [github](https://
 gulp
 ```
 
+### 4. Advanced features
+```shell
+//Create a local environment file
+meanie env
+
+//Create a new named environment
+meanie env pre-prod
+```
+
 ## Gulp tasks
 Meanie comes with fully configured [Gulp](http://gulpjs.com/) tasks for all common development and build tasks.
 

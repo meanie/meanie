@@ -39,10 +39,10 @@ gulp
 
 ### 4. Advanced features
 ```shell
-//Create a local environment file
+# Create a local environment file
 meanie env
 
-//Create a new named environment
+# Create a new named environment
 meanie env pre-prod
 ```
 

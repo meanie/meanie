@@ -28,7 +28,7 @@
 	"notypeof": true,
 	"strict": false,
 	"undef": true,
-	"unused": false,
+	"unused": true,
 	"browser": true,
 	"node": true
 }

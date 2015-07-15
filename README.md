@@ -22,15 +22,9 @@ npm install -g meanie
 meanie create AppName
 ```
 
-This will install the following core Meanie modules:
-* [boilerplate](https://github.com/meanie/boilerplate)
-* [angular-storage](https://github.com/meanie/angular-storage)
-* [angular-convert](https://github.com/meanie/angular-convert)
-* [angular-filters](https://github.com/meanie/angular-filters)
-
 ### 2. Install any additional modules you'd like
 ```shell
-meanie install fontello
+meanie install angular-storage angular-api
 ```
 
 To find out what Meanie modules are available, check Meanie on [github](https://github.com/meanie) or find Meanie modules in the [npm registry](https://www.npmjs.com/search?q=meanie-module).
@@ -138,7 +132,7 @@ The Meanie client app is built on the AngularJS framework. If you want to use a 
 #### Why are the common Angular services prefixed with a dollar sign? Isn't that bad practice?
 Generally it's not advisable to prefix your own services with a dollar sign, because it might lead to conflicts with internal Angular services. However, since Angular 1.x is pretty stable and development on Angular 2.x is well underway, it is unlikely that new internal Angular services will be released which would conflict with Meanie services. Moreover, in some cases the same name is used inentionally to overwrite an existing Angular service (e.g. `$log`) in order to improve its functionality.
 
-By prefixing some of the common Angular services with a dollar sign, it is easier to distinguish them from your own application specific services and you can treat the common services as if they are an extension of the Angular framework. 
+By prefixing some of the common Angular services with a dollar sign, it is easier to distinguish them from your own application specific services and you can treat the common services as if they are an extension of the Angular framework.
 
 ## Issues & feature requests
 Please report any bugs, issues, suggestions and feature requests in the appropriate issue tracker:

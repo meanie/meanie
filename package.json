@@ -1,8 +1,8 @@
 {
   "name": "meanie",
   "description": "Meanie is a boilerplate for developing, testing and building full-stack modular javascript applications using MEAN (MongoDB, Express, AngularJS and Node.js). Meanie is powered by the Gulp task runner.",
-  "version": "0.2.7",
-  "homepage": "https://github.com/meanie/",
+  "version": "0.6.0",
+  "homepage": "https://github.com/meanie/#readme",
   "author": {
     "name": "Adam Buczynski",
     "email": "me@adambuczynski.com",
@@ -10,7 +10,6 @@
   },
   "contributors": [],
   "license": "MIT",
-  "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/meanie/meanie"
@@ -22,7 +21,7 @@
     "meanie",
     "mean",
     "boilerplate",
-    "full stack",
+    "fullstack",
     "full-stack",
     "angular",
     "angularjs",
@@ -38,26 +37,36 @@
   "files": [
     "cli.js",
     "bin",
-    "lib"
+    "lib",
+    "seed"
   ],
   "preferGlobal": true,
   "main": "./lib/meanie.js",
   "bin": "./bin/meanie-cli.js",
   "scripts": {
-    "start": "",
-    "test": ""
+    "jshint": "./node_modules/jshint/bin/jshint --reporter=node_modules/jshint-stylish . || true",
+    "jscs": "./node_modules/jscs/bin/jscs . || true",
+    "pretest": "npm run jscs & npm run jshint",
+    "test": "node test.js"
   },
   "dependencies": {
     "chalk": "^1.0.0",
     "cpr": "^0.4.1",
     "del": "^1.2.0",
+    "fs-extra": "^0.20.1",
     "jsonfile": "^2.0.1",
     "liftoff": "^2.1.0",
-    "minimist": "^1.1.1",
     "npm": "^2.11.2",
-    "npm-registry-client": "^6.4.0",
+    "replace-in-file": "^0.2.1",
     "semver": "^4.3.6",
     "tildify": "^1.1.0",
     "v8flags": "^2.0.7"
+  },
+  "devDependencies": {
+    "jasmine": "^2.3.1",
+    "jasmine-spec-reporter": "^2.2.3",
+    "jscs": "^1.13.1",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.0.1"
   }
 }

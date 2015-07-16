@@ -11,35 +11,54 @@ Meanie is a boilerplate for developing, testing and building full-stack modular 
 This package contains the Meanie CLI tool which can be used to create new Meanie projects and install other Meanie modules. For more information about the boilerplate itself, please check the [Meanie Boilerplate GitHub repository](https://github.com/meanie/boilerplate) or the [Meanie Boilerplate npm page](https://www.npmjs.com/package/meanie-boilerplate).
 
 ## Installation
+
 ```shell
 # Install meanie CLI globally
 npm install -g meanie
 ```
 
 ## Usage
+
 ### 1. Create a new Meanie project
+
 ```shell
-meanie create
+meanie create AppName
 ```
 
+This will install the following core Meanie module(s):
+* [boilerplate](https://github.com/meanie/boilerplate)
+
 ### 2. Install any additional modules you'd like
+
 ```shell
-meanie install angular-storage angular-filters fontello
+meanie install angular-storage angular-api
 ```
 
 To find out what Meanie modules are available, check Meanie on [github](https://github.com/meanie) or find Meanie modules in the [npm registry](https://www.npmjs.com/search?q=meanie-module).
 
 ### 3. Build and run the app!
+
 ```shell
 gulp
 ```
 
+### 4. Advanced features
+```shell
+# Create a local environment file
+meanie env
+
+# Create a new named environment
+meanie env pre-prod
+```
+
 ## Gulp tasks
+
 Meanie comes with fully configured [Gulp](http://gulpjs.com/) tasks for all common development and build tasks.
 
 *Note*: The gulpfile for Meanie has been configured for use with Gulp version 4. This version is not officially released yet, but you can install and use the alpha version by following  [these instructions](http://demisx.github.io/gulp4/2015/01/15/install-gulp4.html).
 
 ### Default
+
 The default task, which you can run by simply typing `gulp` is to run the three main tasks, build, watch and start. This is perfect for ongoing development.
 ```shell
 $ gulp
@@ -47,12 +66,14 @@ $ gulp
 You can also run these tasks individually if needed.
 
 ### Build
+
 Build the application and populate the public folder with compiled javascript, stylesheets and static assets. The build task also lints your files and runs your tests prior to building.
 ```shell
 $ gulp build
 ```
 
 ### Watch
+
 Watch your files for changes and runs linters, unit tests and recompiles the application files as needed.
 ```shell
 $ gulp watch
@@ -60,12 +81,14 @@ $ gulp watch
 The watch task also comes with livereload, which gets triggered every time the index file is rebuilt. To use it, simply install the [Chrome livereload plugin](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en).
 
 ### Start
+
 Starts the Node server using [Nodemon](http://nodemon.io/).
 ```shell
 $ gulp start
 ```
 
 ### Testing
+
 You can test your client and server side code without building by using one of the following tasks:
 ```shell
 # Test server side code and client side code
@@ -79,6 +102,7 @@ $ gulp test-client
 ```
 
 ### Versioning
+
 There are three versioning tasks which help you bump your version numbers in your package files and automatically update the version in your README file, as well as commit the bump to the repository and tag it with the new version.
 
 This process uses [semantic versioning](https://github.com/npm/node-semver).
@@ -95,7 +119,8 @@ $ gulp major
 ```
 
 ### Helpers
-Some of the helper tasks have also been exposed to the CLI:``
+
+Some of the helper tasks have also been exposed to the CLI:
 
 ```shell
 # Cleans the public folder
@@ -108,6 +133,7 @@ $ gulp static
 ## FAQ
 
 #### How is Meanie different from other MEAN boilerplates?
+
 The most important difference between Meanie and other MEAN boilerplates like [MEAN.JS](https://github.com/meanjs/mean), is that Meanie uses a [modular approach to folder/file structuring](http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript), whereas most others use more of a "sock drawer" approach to organizing files. Meanie thinks that a modular approach is easier to navigate, easier to reuse/refactor, and easier to develop with.
 
 Other differences are:
@@ -116,28 +142,39 @@ Other differences are:
 * Meanie has a simple overarching environment/configuration system that makes it a breeze to use your specific environment configuration options in your server app, client app, and even in your gulpfile and Karma configuration file.
 
 #### Why doesn't Meanie use Yeoman?
+
 [Yeoman](http://yeoman.io/) prescribes a particular folder structure (e.g. must have /app in your root), whereas Meanie likes to split your code between server/ and client/ first.
 
-#### Why can't I simply install Meanie modules with npm?
+#### Why can't I install the boilerplate with npm?
+
 Unfortunately, npm currently doesn't support moving package code outside of the `node_modules` folder. Since the Meanie boilerplate has to reside in your project folder and not in `node_modules`, it was necessary to circumvent this limitation by creating a custom CLI tool.
 
-If at some point npm and Bower somehow fuse into a single wonderful tool to manage both client and server side dependencies, Meanie will be the first to use it!
-
 #### What if I want to use different server architecture?
+
 Just delete the `server` folder and replace it with whatever you'd like to use. You can use backend mocks for the client application by installing the [Meanie Backend Mocks](https://github.com/meanie/meanie-backend-mocks) module.
 
 #### What if I want to use different client architecture?
+
 The Meanie client app is built on the AngularJS framework. If you want to use a different framework, it is recommended you find a different boilerplate, suited for that specific framework.
 
+#### Why are the common Angular services prefixed with a dollar sign? Isn't that bad practice?
+
+Generally it's not advisable to prefix your own services with a dollar sign, because it might lead to conflicts with internal Angular services. However, since Angular 1.x is pretty stable and development on Angular 2.x is well underway, it is unlikely that new internal Angular services will be released which would conflict with Meanie services. Moreover, in some cases the same name is used inentionally to overwrite an existing Angular service (e.g. `$log`) in order to improve its functionality.
+
+By prefixing some of the common Angular services with a dollar sign, it is easier to distinguish them from your own application specific services and you can treat the common services as if they are an extension of the Angular framework.
+
 ## Issues & feature requests
+
 Please report any bugs, issues, suggestions and feature requests in the appropriate issue tracker:
 * [Meanie Boilerplate issue tracker](https://github.com/meanie/boilerplate/issues)
 * [Meanie CLI issue tracker](https://github.com/meanie/meanie/issues)
 
 ## Contributing
+
 If you would like to contribute to Meanie, please check out [CONTRIBUTING.md](https://github.com/meanie/meanie/blob/master/CONTRIBUTING.md).
 
 ## Further reading
+
 * [Modular vs sock drawer folder structure](http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript)
 * [Editor config](http://editorconfig.org)
 * [Bower configuration](http://bower.io/docs/config/)
@@ -146,11 +183,13 @@ If you would like to contribute to Meanie, please check out [CONTRIBUTING.md](ht
 * [Debugging Javascript](https://developer.chrome.com/devtools/docs/javascript-debugging)
 
 ## Credits
+
 * Server side logic partially derived from [MEAN.JS](https://github.com/meanjs/mean)
 * MEAN name coined by [Valeri Karpov](http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and)
 * CLI tool inspired by [Gulp](https://github.com/gulpjs/gulp) and [npm](https://github.com/npm/npm).
 
 ## License
+
 (MIT License)
 
 Copyright 2015, [Adam Buczynski](http://adambuczynski.com)

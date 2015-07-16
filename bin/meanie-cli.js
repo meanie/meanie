@@ -9,7 +9,6 @@ var semver = require('semver');
 var tildify = require('tildify');
 var Liftoff = require('liftoff');
 var v8flags = require('v8flags');
-var argv = require('minimist')(process.argv.slice(2));
 
 /**
  * Meanie dependencies
@@ -33,12 +32,6 @@ cli.on('requireFail', function(name) {
   console.error(chalk.red('Failed to load external module', name));
 });
 
-//Launch CLI application
-cli.launch({
-  cwd: argv.cwd,
-  configPath: argv.meanfile
-}, run);
-
 /**
  * CLI logic
  */
@@ -47,7 +40,7 @@ function run(env) {
   //Append cli package
   env.cliPackage = cliPackage;
 
-  //Change working directory of process if needed
+  //Change working directory of process if different from current
   if (process.cwd() !== env.cwd) {
     process.chdir(env.cwd);
     console.log('Working directory changed to', chalk.magenta(tildify(env.cwd)));
@@ -59,12 +52,13 @@ function run(env) {
   //If no local version present, use CLI bundled package.
   if (!env.modulePath) {
     meanie = require('../lib/meanie');
+    env.cliVersion = cliPackage.version;
   }
   else {
 
     //Log and check for version difference between cli and local installation
     console.log(chalk.yellow('Local meanie found at'), chalk.magenta(tildify(env.modulePath)));
-    if (env.modulePackage && typeof env.modulePackage.version !== 'undefined') {
+    if (env.modulePackage && env.modulePackage.version) {
       if (semver.gt(cliPackage.version, env.modulePackage.version)) {
         console.log(chalk.yellow('Warning: Meanie version mismatch'));
         console.log(chalk.yellow('CLI version is', cliPackage.version));
@@ -74,17 +68,23 @@ function run(env) {
 
     //Use local meanie package
     meanie = require(env.modulePath);
+    env.cliVersion = env.modulePackage.version;
   }
 
   //Load
-  meanie.load(env, argv, function(error) {
+  meanie.load(env, function(error, args) {
     if (error) {
       return errorHandler(error);
     }
 
     //Run command
     process.nextTick(function() {
-      meanie.commands[meanie.command](argv._, errorHandler);
+      meanie.commands[meanie.command](args, errorHandler);
     });
   });
 }
+
+/**
+ * Launch CLI application
+ */
+cli.launch({}, run);

@@ -25,16 +25,13 @@ npm install -g meanie
 meanie create AppName
 ```
 
-This will install the following core Meanie modules:
+This will install the following core Meanie module(s):
 * [boilerplate](https://github.com/meanie/boilerplate)
-* [angular-storage](https://github.com/meanie/angular-storage)
-* [angular-convert](https://github.com/meanie/angular-convert)
-* [angular-filters](https://github.com/meanie/angular-filters)
 
 ### 2. Install any additional modules you'd like
 
 ```shell
-meanie install fontello
+meanie install angular-storage angular-api
 ```
 
 To find out what Meanie modules are available, check Meanie on [github](https://github.com/meanie) or find Meanie modules in the [npm registry](https://www.npmjs.com/search?q=meanie-module).
@@ -43,6 +40,15 @@ To find out what Meanie modules are available, check Meanie on [github](https://
 
 ```shell
 gulp
+```
+
+### 4. Advanced features
+```shell
+# Create a local environment file
+meanie env
+
+# Create a new named environment
+meanie env pre-prod
 ```
 
 ## Gulp tasks

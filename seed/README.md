@@ -1,4 +1,4 @@
-# Meanie - xxxxx
+# xxxxx
 
 [![npm version](https://img.shields.io/npm/v/meanie-xxxxx.svg)](https://www.npmjs.com/package/meanie-xxxxx)
 [![node dependencies](https://david-dm.org/meanie/xxxxx.svg)](https://david-dm.org/meanie/xxxxx)
@@ -9,24 +9,75 @@
 Description.... for [Meanie](https://github.com/meanie/meanie) projects.
 
 ## Installation
+
 Install using the [Meanie CLI](https://www.npmjs.com/package/meanie):
 ```shell
+meanie install fontello
+```
+
+-- OR --
+
+## Installation
+
+You can install this package using `meanie`, `npm` or `bower`.
+
+### meanie
+
+```shell
 meanie install xxxxx
+```
+
+Then add `XXX.Service` as a dependency for your app:
+
+```js
+angular.module('App.MyModule', ['XXX.Service']);
+```
+
+### npm
+
+```shell
+npm install meanie-xxxxx
+```
+
+Then add as a dependency for your app:
+
+```js
+angular.module('App.MyModule', [require('meanie-xxxxx')]);
+```
+
+### bower
+
+```shell
+bower install meanie-xxxxx
+```
+
+Add a `<script>` to your `index.html`:
+
+```html
+<script src="/bower_components/meanie-xxxxx/release/meanie-xxxxx.js"></script>
+```
+
+Then add `XXX.Service` as a dependency for your app:
+
+```js
+angular.module('App.MyModule', ['XXX.Service']);
 ```
 
 ## Usage
 ...
 
 ## Issues & feature requests
-Please report any bugs, issues, suggestions and feature requests in the appropriate issue tracker:
-* [Module issue tracker](https://github.com/meanie/xxxxx/issues)
-* [Meanie Boilerplate issue tracker](https://github.com/meanie/boilerplate/issues)
-* [Meanie CLI issue tracker](https://github.com/meanie/meanie/issues)
+
+Please report any bugs, issues, suggestions and feature requests in the [meanie-xxxxx issue tracker](https://github.com/meanie/xxxxx/issues).
 
 ## Contributing
+
+Pull requests are welcome! Please create them against the [dev branch](https://github.com/meanie/xxxxx/tree/dev) of the repository.
+
 If you would like to contribute to Meanie, please check out the [Meanie contributing guidelines](https://github.com/meanie/meanie/blob/master/CONTRIBUTING.md).
 
 ## License
+
 (MIT License)
 
 Copyright 2015, [Adam Buczynski](http://adambuczynski.com)

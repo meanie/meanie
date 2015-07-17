@@ -1,0 +1,15 @@
+{
+  "name": "meanie-xxxxx",
+  "version": "0.0.1",
+  "main": "./release/meanie-xxxxx.js",
+  "ignore": [
+    "**/.*",
+    "gulpfile.js",
+    "karma.conf.js",
+    "src",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.4.3"
+  }
+}

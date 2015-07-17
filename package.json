@@ -44,10 +44,8 @@
   "main": "./lib/meanie.js",
   "bin": "./bin/meanie-cli.js",
   "scripts": {
-    "jshint": "./node_modules/jshint/bin/jshint --reporter=node_modules/jshint-stylish . || true",
-    "jscs": "./node_modules/jscs/bin/jscs . || true",
-    "pretest": "npm run jscs & npm run jshint",
-    "test": "node test.js"
+    "pretest": "gulp lint",
+    "test": "gulp test"
   },
   "dependencies": {
     "chalk": "^1.1.0",
@@ -63,8 +61,16 @@
     "v8flags": "^2.0.9"
   },
   "devDependencies": {
-    "jasmine": "^2.3.1",
-    "jasmine-spec-reporter": "^2.4.0",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-bump": "^0.3.1",
+    "gulp-cached": "^1.1.0",
+    "gulp-git": "^1.2.4",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-jscs": "^1.6.0",
+    "gulp-jscs-stylish": "^1.1.0",
+    "gulp-jshint": "^1.11.0",
+    "jasmine-core": "^2.3.4",
+    "jasmine-spec-reporter": "^2.2.3",
     "jscs": "^1.13.1",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1"

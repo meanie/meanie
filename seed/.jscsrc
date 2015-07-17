@@ -11,6 +11,7 @@
   "maximumLineLength": 100,
   "validateLineBreaks": "LF",
   "validateIndentation": 2,
+  "disallowTrailingComma": true,
   "disallowMultipleVarDecl": "exceptUndefined",
   "disallowKeywordsOnNewLine": null,
   "disallowSpacesInsideObjectBrackets": null,

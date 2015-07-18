@@ -6,11 +6,12 @@
   "excludeFiles": [
     "node_modules/**"
   ],
-
   "requireParenthesesAroundIIFE": true,
   "maximumLineLength": 100,
   "validateLineBreaks": "LF",
   "validateIndentation": 2,
+  "disallowTrailingComma": true,
+  "disallowMultipleSpaces": true,
   "disallowMultipleVarDecl": "exceptUndefined",
   "disallowKeywordsOnNewLine": null,
   "disallowSpacesInsideObjectBrackets": null,

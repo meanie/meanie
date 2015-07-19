@@ -165,6 +165,11 @@ Please report any bugs, issues, suggestions and feature requests in the appropri
 * [Meanie Boilerplate issue tracker](https://github.com/meanie/boilerplate/issues)
 * [Meanie CLI issue tracker](https://github.com/meanie/meanie/issues)
 
+Feedback in general is also welcome!
+
+## Roadmap
+Please check [ROADMAP.md](https://github.com/meanie/meanie/blob/master/ROADMAP.md) to see what the future of Meanie looks like and what we're currently working on.
+
 ## Contributing
 
 If you would like to contribute to Meanie, please check out [CONTRIBUTING.md](https://github.com/meanie/meanie/blob/master/CONTRIBUTING.md).

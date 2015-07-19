@@ -141,13 +141,15 @@ Other differences are:
 * Meanie doesn't serve the Angular HTML files as views, but instead leverages powerful Gulp tasks to compile and pre-process these files.
 * Meanie has a simple overarching environment/configuration system that makes it a breeze to use your specific environment configuration options in your server app, client app, and even in your gulpfile and Karma configuration file.
 
-#### Why doesn't Meanie use Yeoman?
-
-[Yeoman](http://yeoman.io/) prescribes a particular folder structure (e.g. must have /app in your root), whereas Meanie likes to split your code between server/ and client/ first.
-
 #### Why can't I install the boilerplate with npm?
 
 Unfortunately, npm currently doesn't support moving package code outside of the `node_modules` folder. Since the Meanie boilerplate has to reside in your project folder and not in `node_modules`, it was necessary to circumvent this limitation by creating a custom CLI tool.
+
+The Meanie CLI tool can install front-end or full-stack packages and copy files over to your project directory, or to your bower_components directory, while also updating bower.json dependencies for you.
+
+#### Why doesn't Meanie use Yeoman?
+
+[Yeoman](http://yeoman.io/) prescribes a particular folder structure (e.g. must have /app in your root), whereas Meanie likes to split your code between server/ and client/ first.
 
 #### What if I want to use different server architecture?
 
@@ -156,12 +158,6 @@ Just delete the `server` folder and replace it with whatever you'd like to use. 
 #### What if I want to use different client architecture?
 
 The Meanie client app is built on the AngularJS framework. If you want to use a different framework, it is recommended you find a different boilerplate, suited for that specific framework.
-
-#### Why are the common Angular services prefixed with a dollar sign? Isn't that bad practice?
-
-Generally it's not advisable to prefix your own services with a dollar sign, because it might lead to conflicts with internal Angular services. However, since Angular 1.x is pretty stable and development on Angular 2.x is well underway, it is unlikely that new internal Angular services will be released which would conflict with Meanie services. Moreover, in some cases the same name is used inentionally to overwrite an existing Angular service (e.g. `$log`) in order to improve its functionality.
-
-By prefixing some of the common Angular services with a dollar sign, it is easier to distinguish them from your own application specific services and you can treat the common services as if they are an extension of the Angular framework.
 
 ## Issues & feature requests
 

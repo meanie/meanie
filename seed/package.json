@@ -17,6 +17,8 @@
   "bugs": {
     "url": "https://github.com/meanie/xxxxx/issues"
   },
+  "packageType": "front-end",
+  "instructions": "https://github.com/meanie/xxxxx#usage",
   "keywords": [
     "meanie",
     "meanie-module"
@@ -25,8 +27,7 @@
   "files": [
     "release",
     "index.js",
-    "bower.json",
-    "meanie.json"
+    "bower.json"
   ],
   "scripts": {
     "pretest": "gulp lint",

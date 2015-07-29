@@ -1,10 +1,5 @@
-<p align="center">
-  <a href="https://github.com/meanie/meanie">
-    <img height="184" width="556" src="https://raw.githubusercontent.com/meanie/meanie/master/meanie-logo-full.png">
-  </a>
-</p>
 
-# Meanie
+![Meanie](https://raw.githubusercontent.com/meanie/meanie/master/meanie-logo-full.png)
 
 [![npm version](https://img.shields.io/npm/v/meanie.svg)](https://www.npmjs.com/package/meanie)
 [![node dependencies](https://david-dm.org/meanie/meanie.svg)](https://david-dm.org/meanie/meanie)

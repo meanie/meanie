@@ -78,8 +78,7 @@ function watch() {
  */
 function patchBump() {
   return gulp.src([
-    './package.json',
-    './bower.json'
+    './package.json'
   ]).pipe(bump({type: 'patch'}))
     .pipe(gulp.dest('./'));
 }
@@ -89,8 +88,7 @@ function patchBump() {
  */
 function minorBump() {
   return gulp.src([
-    './package.json',
-    './bower.json'
+    './package.json'
   ]).pipe(bump({type: 'minor'}))
     .pipe(gulp.dest('./'));
 }
@@ -100,8 +98,7 @@ function minorBump() {
  */
 function majorBump() {
   return gulp.src([
-    './package.json',
-    './bower.json'
+    './package.json'
   ]).pipe(bump({type: 'major'}))
     .pipe(gulp.dest('./'));
 }
@@ -112,8 +109,7 @@ function majorBump() {
 function commitBump() {
   var version = packageJson().version;
   return gulp.src([
-    './package.json',
-    './bower.json'
+    './package.json'
   ]).pipe(git.commit('Bump version to ' + version));
 }
 

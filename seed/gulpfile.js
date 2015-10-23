@@ -54,7 +54,7 @@ function packageFileName(filename, ext) {
  */
 function angularWrapper() {
   return {
-    header: '(function (window, angular, undefined) {\'use strict\';\n',
+    header: '(function(window, angular, undefined) {\'use strict\';\n',
     footer: '\n})(window, window.angular);\n'
   };
 }
@@ -91,19 +91,21 @@ function bannerWrapper() {
  ***/
 
 /**
- * Clean the public folder
+ * Clean the release folder
  */
-function clean(done) {
-  del('release', done);
+function clean() {
+  return del('release');
 }
 
 /**
  * Build release files
  */
 function release() {
-  var jsFilter = filter(['*.js']);
+  var jsFilter = filter(['*.js'], {
+    restore: true
+  });
   return gulp.src([
-    'src/**/*.js',
+    'src/**/*.js'
   ]).pipe(ngAnnotate({
     single_quotes: true
   }))
@@ -117,7 +119,7 @@ function release() {
     .pipe(sourcemaps.write('./'))
     .pipe(jsFilter)
     .pipe(wrapper(bannerWrapper()))
-    .pipe(jsFilter.restore())
+    .pipe(jsFilter.restore)
     .pipe(gulp.dest('release'));
 }
 

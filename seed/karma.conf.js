@@ -8,14 +8,6 @@ module.exports = function(config) {
     //Base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-    //Files
-    files: [
-      'node_modules/angular/angular.js',
-      'node_modules/angular-mocks/angular-mocks.js',
-      'src/**/*.js',
-      'tests/**/*.spec.js'
-    ],
-
     //Frameworks to use (see https://npmjs.org/browse/keyword/karma-adapter)
     frameworks: ['jasmine'],
 
@@ -26,7 +18,7 @@ module.exports = function(config) {
     port: 9876,
 
     //Web server URL root
-    urlRoot:   '/',
+    urlRoot: '/',
 
     //Enable / disable colors in the output (reporters and logs)
     colors: true,

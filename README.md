@@ -68,8 +68,8 @@ If you would like to contribute to Meanie, please check out [CONTRIBUTING.md](ht
 ## Further reading
 
 * [Editor config](http://editorconfig.org)
-* [Bower configuration](http://bower.io/docs/config/)
 * [JSHint configuration](http://jshint.com/docs/options/)
+* [JSCS rules](http://jscs.info/rules)
 * [Package.json configuration](https://docs.npmjs.com/files/package.json)
 * [Debugging Javascript](https://developer.chrome.com/devtools/docs/javascript-debugging)
 

@@ -40,7 +40,7 @@ meanie seed express
 ### 2. Install any additional libraries you'd like
 
 ```shell
-meanie install angular-storage angular-api angular-url
+meanie install angular-storage angular-api angular-modal
 ```
 
 To find out what other Meanie moduels and libraries are available, check [Meanie on github](https://github.com/meanie) or find [Meanie modules in the npm registry](https://www.npmjs.com/search?q=meanie-module).

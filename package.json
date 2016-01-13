@@ -46,7 +46,7 @@
     "lint:jshint": "jshint . --reporter=node_modules/jshint-stylish",
     "lint:jscs": "jscs . --reporter=node_modules/jscs-stylish",
     "lint": "npm run lint:jshint && npm run lint:jscs",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags && npm publish"
   },
   "dependencies": {
     "any-shell-escape": "0.1.1",

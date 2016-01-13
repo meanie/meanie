@@ -1,7 +1,7 @@
 {
   "name": "meanie",
-  "description": "Meanie is a boilerplate for developing, testing and building full-stack modular javascript applications using MEAN (MongoDB, Express, AngularJS and Node.js). Meanie is powered by the Gulp task runner.",
-  "version": "1.0.1",
+  "description": "Meanie is a a collection of seed projects and libraries for developing, testing and building javascript applications using the MEAN stack (MongoDB, Express, Angular and Node).",
+  "version": "2.0.0",
   "homepage": "https://github.com/meanie/#readme",
   "author": {
     "name": "Adam Buczynski",
@@ -31,47 +31,38 @@
     "express"
   ],
   "engines": {
-    "node": ">=0.12.4",
-    "npm": ">=2.10.1"
+    "node": ">=5.3.0",
+    "npm": ">=3.5.2"
   },
   "files": [
     "cli.js",
     "bin",
-    "lib",
-    "seed"
+    "lib"
   ],
   "preferGlobal": true,
   "main": "./lib/meanie.js",
   "bin": "./bin/meanie-cli.js",
   "scripts": {
-    "pretest": "gulp lint",
-    "test": "gulp test"
+    "lint:jshint": "jshint . --reporter=node_modules/jshint-stylish",
+    "lint:jscs": "jscs . --reporter=node_modules/jscs-stylish",
+    "lint": "npm run lint:jshint && npm run lint:jscs",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
-    "chalk": "^1.1.0",
-    "cpr": "^0.4.1",
-    "fs-extra": "^0.24.0",
-    "jsonfile": "^2.2.1",
-    "liftoff": "^2.1.0",
-    "npm": "2.14.8",
-    "replace-in-file": "^0.2.1",
+    "any-shell-escape": "0.1.1",
+    "chalk": "^1.1.1",
+    "del": "^2.2.0",
+    "liftoff": "^2.2.0",
+    "mkdirp": "^0.5.1",
+    "npm": "3.5.3",
     "semver": "^5.0.1",
-    "tildify": "^1.1.0",
-    "v8flags": "^2.0.9"
+    "tildify": "^1.1.2",
+    "v8flags": "^2.0.11"
   },
   "devDependencies": {
-    "gulp": "gulpjs/gulp#4.0",
-    "gulp-bump": "^1.0.0",
-    "gulp-cached": "^1.1.0",
-    "gulp-git": "^1.6.0",
-    "gulp-jasmine": "^2.0.1",
-    "gulp-jscs": "^3.0.1",
-    "gulp-jscs-stylish": "^1.2.1",
-    "gulp-jshint": "^1.11.0",
-    "jasmine-core": "^2.3.4",
-    "jasmine-spec-reporter": "^2.4.0",
-    "jscs": "^2.3.5",
-    "jshint": "^2.8.0",
-    "jshint-stylish": "^2.0.1"
+    "jscs": "^2.8.0",
+    "jscs-stylish": "^0.3.1",
+    "jshint": "^2.9.1-rc2",
+    "jshint-stylish": "^2.1.0"
   }
 }

@@ -1,24 +1,17 @@
 # Contributing to Meanie
 
-## Request for contributions
-
-Please contribute to this repository if any of the following is true:
-- You have expertise in community development, communication, or education
-- You want open source communities to be more collaborative and inclusive
-- You want to help lower the burden to first time contributors
-
 ## How to contribute
 
 Prerequisites:
 
-- familiarity with [GitHub PRs](https://help.github.com/articles/using-pull-requests) (pull requests) and issues
-- knowledge of [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for editing `.md` documents
+- Familiarity with [GitHub PRs](https://help.github.com/articles/using-pull-requests) (pull requests) and issues
+- Knowledge of [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for editing `.md` documents
 
 In particular, this community seeks the following types of contributions:
 
-- ideas: participate in an Issues thread or start your own to have your voice
+- Ideas: participate in an issues thread or start your own to have your voice
 heard
-- code: Fix issues or contribute new features to this or any related projects
+- Code: fix issues or contribute new features to Meanie projects
 
 ## Conduct
 

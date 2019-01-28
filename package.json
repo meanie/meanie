@@ -4,8 +4,8 @@
   "version": "2.0.2",
   "homepage": "https://github.com/meanie/#readme",
   "author": {
-    "name": "Adam Buczynski",
-    "email": "me@adambuczynski.com",
+    "name": "Adam Reis",
+    "email": "adam@reis.nz",
     "url": "http://adambuczynski.com/"
   },
   "contributors": [],
@@ -31,8 +31,7 @@
     "express"
   ],
   "engines": {
-    "node": ">=5.3.0",
-    "npm": ">=3.5.2"
+    "node": ">=5.3.0"
   },
   "files": [
     "cli.js",
@@ -49,12 +48,12 @@
     "postversion": "git push && git push --tags && npm publish"
   },
   "dependencies": {
-    "any-shell-escape": "0.1.1",
+    "any-shell-escape": "^0.1.1",
     "chalk": "^1.1.1",
     "del": "^2.2.0",
     "liftoff": "^2.2.0",
     "mkdirp": "^0.5.1",
-    "npm": "3.5.3",
+    "npm": "^3.8.3",
     "semver": "^5.0.1",
     "tildify": "^1.1.2",
     "v8flags": "^2.0.11"

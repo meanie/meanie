@@ -4,7 +4,6 @@
 [![npm version](https://img.shields.io/npm/v/meanie.svg)](https://www.npmjs.com/package/meanie)
 [![node dependencies](https://david-dm.org/meanie/meanie.svg)](https://david-dm.org/meanie/meanie)
 [![github issues](https://img.shields.io/github/issues/meanie/meanie.svg)](https://github.com/meanie/meanie/issues)
-[![codacy](https://img.shields.io/codacy/746f62db3e70495da98bca9da333ec8e.svg)](https://www.codacy.com/app/meanie/meanie)
 [![gitter](https://img.shields.io/badge/gitter-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/meanie/meanie?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Meanie is a collection of boilerplate code and libraries for developing, testing and building javascript applications using the MEAN stack (MongoDB, Express, Angular and Node).
@@ -83,4 +82,4 @@ If you would like to contribute to Meanie, please check out [CONTRIBUTING.md](ht
 
 (MIT License)
 
-Copyright 2015-2016, [Adam Buczynski](http://adambuczynski.com)
+Copyright 2015-2019, [Adam Reis](http://adambuczynski.com)

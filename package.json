@@ -1,7 +1,7 @@
 {
   "name": "meanie",
   "description": "Meanie is a a collection of libraries for developing, testing and building javascript applications using the MEAN stack (MongoDB, Express, AngularJS and Node).",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "homepage": "https://github.com/meanie/#readme",
   "author": {
     "name": "Adam Reis",
